@@ -13,11 +13,11 @@
     <form @submit.prevent="console.log( 'At LoginScreen.vue Line.2' , this.getIsLoggedIn , ' user' , this.currentUser )" >
         <div class="mb-3 mt-3">
             <label for="email">電子信箱:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email" >
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email" autocomplete="username" >
         </div>
         <div class="mb-3">
             <label for="pwd">密碼:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" v-model="password">
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" v-model="password" autocomplete="current-password">
         </div>
         <div class="form-check mb-3">
             <label class="form-check-label">
@@ -56,7 +56,13 @@ export default {
         practiceMode(newVal,oldVal){
             console.log('LoginScreen line.54 ', newVal ,'to', oldVal);
             this.changePracticMode({practiceMode:newVal});
-        }
+        },
+        getIsLoggedIn(newVal){
+            // 如果登入成功，
+            if (newVal) {
+                this.$router.push({path:'/manageSystem'}) ;
+            }
+        },
     },
     methods:{
         //使用 store.js 當作 Vuex 狀態管理檔案

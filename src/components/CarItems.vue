@@ -1,8 +1,16 @@
 <template>
     <!-- 汽車項目清單 -->
 
-    <button @click="fetchCarData">抓取資料</button>
-    <button @click="setNewItemInFieldOnDoc({ collection_name:'websell' , document_name:'production' , field_name:'car' , data_content: {name:'車子3',imgName:'car01'} })">新增資料</button>
+    <div title="請按下 F12 後，在按下按鈕測試">
+      <button @click="fetchCarData">抓取 Firebase 練習資料</button>
+      <button @click="setNewItemInFieldOnDoc({ 
+            collection_name:'websell' , 
+            document_name:'production' , 
+            field_name:'car' , 
+            data_content: {name:'車子3',imgName:'car01'} })">
+            新增資料 特定資料 練習
+            </button>
+    </div>
     <!-- id="env" 這個容器顯示效果為彈性顯示 -->
     <div id="env" class="d-flex flex-wrap border-5 border-info text-center">
         <!-- car 為自訂變數名稱，固定用 index 用來取得清單的索引值，可以不用索引值，去掉小括號()即可 -->
@@ -14,6 +22,8 @@
     </div>
 </template>
 <script>
+    // 在每個子組件，匯入所有的影像，這不是好的做法
+    // 已改在上層組件匯入，不然子組件渲染一次，就會重複匯入資源一次
     import imgUp from '@/assets/up.png' ;
     import imgDown from '@/assets/down.png' ;
     import car01 from '@/assets/car01.png' ;

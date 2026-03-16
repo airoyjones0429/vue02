@@ -1,13 +1,38 @@
 <template>
   <!-- <main-screen/> -->
-   <!-- <doc-list/>  -->
- <p>===============</p>  
-   <doc-list1/>
+  <!-- <doc-list/>  -->
+  <!-- <doc-list1/> -->
+  <!-- <doc-list2/> -->
+  <!-- <doc-list3/> -->
+  <!-- <main-screen3/> -->
+  <main-screen4 />
 </template>
 
 
 <!-- 用 JS 的 mediaQuery 對設備狀態做監視 -->
-<script src="./mediaQuery.js"></script>
+<script src="./mediaQuery.js">
+export default {
+  mounted() {
+    window.addEventListener('beforeunload', this.handleBeforeUnload);
+  },
+  // 注意!! The `beforeDestroy` lifecycle hook is deprecated. Use `beforeUnmount` instead 
+  beforeUnmount() {
+    window.removeEventListener('beforeunload', this.handleBeforeUnload);
+  },
+  methods:{
+    handleBeforeUnload(event) {
+      // 可以自訂提示訊息
+      const message = '您確定要離開此頁面嗎？';
+      event.returnValue = message; // 這行在某些瀏覽器中可能不會顯示自訂訊息
+      return message; // 這行會顯示自訂訊息
+    },
+  }
+
+}
+
+
+
+</script>
 
 <style>
   /* 1. 定義變數，你可以在 :root 選擇器中定義全局變數，這樣可以在整個文件中使用它們。 */
@@ -15,6 +40,10 @@
     --primary-color: #3498db;
     --secondary-color: #2ecc71;
     --font-size: 16px;
+
+    --top-image-height: 800px ;
+    --logo-image-height: 200px ;
+    --logo-image-width: 600px ;
   }
 
   /* 2. 使用變數，在需要的地方使用這些變數，這樣可以保持一致性並方便修改。 */

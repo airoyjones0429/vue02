@@ -1,3 +1,4 @@
+<!-- 增加產品項目的模板，尚未完成外觀部分，但配合 DocList.vue 已有功能 -->
 <template>
     <div class="container bg-secondary border border-danger">        
         <input type="text" v-model="fieldName" :title="fieldName" placeholder="請輸入欄位名稱">
@@ -46,6 +47,9 @@
                         return '庫存數量';
                 }
             },
+
+            // 將資料輸出到外部，讓外部處理儲存的邏輯
+            // 注意!!  將 key 用變數取代，要加 [] 中括號
             showData(){
                 const dataPackage= {[this.fieldName]:this.fieldContent}
                 console.log( 'FieldList.line.44',dataPackage ); // 列印出物件資料
