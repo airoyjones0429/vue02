@@ -110,19 +110,21 @@ const orderModule = {
                         // 陣列型態，才能直接使用 forEach() 方法
                         orderData.orderDetail.forEach( 
                             item => {
+                                console.log('orderModule-line-113',item);
+                                tempDetailItem={}
                                 // 物件型態，才能這樣取出物件屬性名稱，並設定其內容
                                 Object.keys( item ).forEach(
                                     key => {
                                         tempDetailItem[key]=item[key];
                                     }
                                 );
-                                tempDetailList.push( tempDetailItem );
+                                tempDetailList.push( tempDetailItem );                              
 
                             }
                         );
 
                         // tempDetail.push( orderData.orderDetail[0] );
-                        console.log('orderModule-line-106' , orderData.orderDetail[0] );
+                        // console.log('orderModule-line-106' , orderData.orderDetail[0] );
 
                         // 將訂購單以欄位名稱儲存在 購物文件中
                         await updateDoc( LoadDocRef , 
@@ -137,7 +139,7 @@ const orderModule = {
                                 }
                             }
                         );
-                        console.log( 'orderModule-line-107 ',orderData);
+                        // console.log( 'orderModule-line-107 ',orderData);
                     }
                 );
 
