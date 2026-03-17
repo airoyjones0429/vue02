@@ -14,10 +14,12 @@ import store from './store' ;
 // 引入 子組件藍圖
 import FoodItems from './components/FoodItems.vue'
 import AnimalCollection from './components/AnimalCollection.vue'
+// eslint-disable-next-line
 import LoginScreen from './components/LoginScreen.vue'
 import DocList3 from './components/manage_firestore3/DocList3.vue';
 import DocList4 from './components/manage_firestore4/DocList4.vue';
 import ProductsList from './components/manage_firestore3/ProductsList.vue';
+// eslint-disable-next-line
 import LoginScreen3 from './components/manage_firestore3/LoginScreen3.vue';
 import LoginScreen4 from './components/manage_firestore4/LoginScreen4.vue';
 import ProductsList4 from './components/manage_firestore4/ProductsList4.vue';
