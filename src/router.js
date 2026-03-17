@@ -29,7 +29,7 @@ import MemberCenter from './components/manage_firestore4/memberCenter.vue';
 // 內部物件格式為 path 代表路由名稱，component 代表該路由視圖，所要呈現的 Vue 組件
 const routes = [
     // { path: '/',  component: LoginScreen },
-    { path: '/',  component: LoginScreen , redirect: {name:'newLogin'} }, // redirect 接受絕對位址 或 命名路由物件{name: route_name}
+    // { path: '/',  component: LoginScreen , redirect: {name:'newLogin'} }, // redirect 接受絕對位址 或 命名路由物件{name: route_name} //1150317 改為註解
     { path: '/animals', component: AnimalCollection },
     { path: '/food', component: FoodItems },
     { path: '/manageSystem' , component: DocList3 },
@@ -38,11 +38,12 @@ const routes = [
     { path: '/productList' ,name: 'ProductsList_RouteName', components: { default : DocList3 , ProductsList_RouteViewName : ProductsList} },
 
     // 因保留改版歷程，所以使用 redirect 轉址，!! 注意  導航守衛要增加條件
-    { path: '/login' , name : 'newLogin' , component: LoginScreen3 ,redirect:{name:'newLogin1'}},
+    // { path: '/login' , name : 'newLogin' , component: LoginScreen3 ,redirect:{name:'newLogin1'}}, //1150317 改為註解
     
 
     // 以下為 manage_firestore4 目錄使用路由
-    { path: '/login1' , name : 'newLogin1' , component: LoginScreen4 },
+    // { path: '/login1' , name : 'newLogin1' , component: LoginScreen4 },//1150317 改為註解
+    { path: '/' , name : 'newLogin1' , component: LoginScreen4 },//1150317 改為註解
     { path: '/my-market' , name : 'myMarket' , component: ProductsList4 },
     { path: '/my-market/shopping-car' , name : 'shoppingCar' , components: { default:ProductsList4 ,ShowShoppingCar:ShoppingDetail} },
     { path: '/manageSystem1' , component: DocList4 },
